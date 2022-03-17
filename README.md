@@ -23,3 +23,10 @@ This project also uses my own libgdx extension for better code organization: <a 
 
 <!-- ![image was not loaded](./git_resources/img3.png)  --> 
 
+<br>
+
+# How To Play
+
+- Use WASD keys to move
+- Hold SHIFT to run
+- Hold SPACE to stop moving.
