@@ -35,10 +35,10 @@ public class Sentry {
     protected float secondsForTile;
     private float timer;
     private float firingDelay;
+    private float currentAngle;
 
     // garbage variables
     Vector2 laserStart, sentryPos, playerPos = Vector2.Zero, direction = Vector2.Zero;
-    float currentAngle = 0;
 
 
     public Sentry(AssetSorter assetSorter, World world, int mapRownum, int mapColNum, float firingDelay, float secondsForTile){
@@ -76,10 +76,9 @@ public class Sentry {
         // getting the angle
         direction = playerPos.cpy().sub(sentryPos);
         currentAngle = MathUtils.radDeg * MathUtils.atan2(direction.y, direction.x);
-        currentAngle += 45;
 
         // setting the angle
-        this.sprite.setRotation(currentAngle);
+        this.sprite.setRotation(currentAngle + 90f);
 
         // firing a laser
         if( this.canFire() && !player.isInStartingArea() && player.getDyingTime() == 0.0f){
@@ -117,6 +116,8 @@ public class Sentry {
     public Body getBody() {
         return body;
     }
+
+    public float getCurrentAngle() { return currentAngle; }
 
 }
 

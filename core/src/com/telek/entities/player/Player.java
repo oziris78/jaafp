@@ -26,13 +26,13 @@ import java.util.LinkedList;
 
 public class Player {
 
-    public final int PLAYER_WIDTH = 16;
-    public final int PLAYER_HEIGHT = 16;
+    public static final int PLAYER_WIDTH = 16;
+    public static final int PLAYER_HEIGHT = 16;
+    public static final float DYING_ANIM_TOTAL_TIME = 1.6f;
 
     private final float DENSITY = 0.05f;
     private final float FRICTION = 0.05f;
     private final float RESTITUTION = 0.05f;
-    private final float SECOND_BETWEEN_FRAMES = 0.4f;
 
     private final Vector2 startingPosition, endingPosition;
     private final Rectangle startingArea;
@@ -79,7 +79,7 @@ public class Player {
         this.startingArea = new Rectangle(9 * 32, (23-16) * 32, 2 * 32, 2 * 32);
         STARTING_AREA = new Rectangle(9 * 32, (23-16) * 32, 2 * 32, 2 * 32);
         this.endingPosition = new Vector2(19 * 32 - this.PLAYER_WIDTH / 2, (23-8) * 32 - this.PLAYER_HEIGHT / 2);
-        this.dyingAnimation = DyingAnimation.getAnimation(assetSorter, SECOND_BETWEEN_FRAMES);
+        this.dyingAnimation = DyingAnimation.getAnimation(assetSorter);
         this.gameHasEnded = false;
 
         this.entityType = EntityType.PLAYER;

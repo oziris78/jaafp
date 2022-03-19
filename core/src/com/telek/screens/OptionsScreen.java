@@ -101,6 +101,7 @@ public class OptionsScreen extends ScreenAdapter implements TScreen {
             game.preferences.putBoolean("IS_FULLSCREEN", currentFullscreen);
             game.preferences.putBoolean("MUSIC_SHOULD_PLAY", btnCloseMusic.getText().toString().contentEquals("MUSIC IS ON"));
             game.preferences.flush();
+            game.refleshPreferences();
 
             if(currentFullscreen != isFullscreen || oldHeight != newHeight || oldWidth != newWidth)
                 TScreenUtils.resizeAndSetFullscreen(newWidth, newHeight, currentFullscreen);

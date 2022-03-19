@@ -24,13 +24,6 @@ public class Jaafp extends Game {
 	public static int SCREEN_HEIGHT;
 	public Preferences preferences;
 
-    // screens
-	private MainMenuScreen mainMenuScreen = null;
-	private OptionsScreen optionsScreen = null;
-	private LoadingScreen loadingScreen = null;
-	private GameScreen gameScreen = null;
-	private EndingScreen endingScreen = null;
-
 	// assetsorter
 	public AssetSorter assetSorter;
 	public ScreenSorter<Jaafp> screenSorter;
@@ -49,10 +42,7 @@ public class Jaafp extends Game {
 	public void create() {
 		// saving
 		preferences = Gdx.app.getPreferences("jaafpData");
-		SCREEN_WIDTH = preferences.getInteger("SCREEN_WIDTH", 1024);
-		SCREEN_HEIGHT = preferences.getInteger("SCREEN_HEIGHT", 768);
-		WILL_BE_FULLSCREEN = preferences.getBoolean("IS_FULLSCREEN", false);
-		musicShouldPlay = preferences.getBoolean("MUSIC_SHOULD_PLAY", true);
+		refleshPreferences();
 		TScreenUtils.resizeAndSetFullscreen(SCREEN_WIDTH, SCREEN_HEIGHT, WILL_BE_FULLSCREEN);
 
 		// rendering objects
@@ -87,15 +77,12 @@ public class Jaafp extends Game {
 	@Override
 	public void dispose() {
 		super.dispose();
-		// DISPOSE ALL SCREENS
-		mainMenuScreen.dispose();
-		gameScreen.dispose();
-		endingScreen.dispose();
 		// DISPOSE ALL RENDERING OBJECTS
 		batch.dispose();
 		shapeRenderer.dispose();
 		// DISPOSE ASSETSORTER
 		assetSorter.disposeAll();
+		screenSorter.dispose();
 	}
 
 
@@ -106,6 +93,13 @@ public class Jaafp extends Game {
 
 		this.batch.setProjectionMatrix(this.camera.combined);
 		this.shapeRenderer.setProjectionMatrix(this.camera.combined);
+	}
+
+	public void refleshPreferences() {
+		SCREEN_WIDTH = preferences.getInteger("SCREEN_WIDTH", 1024);
+		SCREEN_HEIGHT = preferences.getInteger("SCREEN_HEIGHT", 768);
+		WILL_BE_FULLSCREEN = preferences.getBoolean("IS_FULLSCREEN", false);
+		musicShouldPlay = preferences.getBoolean("MUSIC_SHOULD_PLAY", true);
 	}
 
 }

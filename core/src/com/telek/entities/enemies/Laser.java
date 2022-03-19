@@ -30,7 +30,7 @@ public class Laser {
 
         this.texture = assetSorter.getResource("GAME_SCREEN", "laserTexture", Texture.class);
         this.sprite = new Sprite(this.texture);
-        this.sprite.setRotation(sentry.getSprite().getRotation() - 45);
+        this.sprite.setRotation(sentry.getCurrentAngle());
         this.sprite.setPosition(
                 sentryPos.x * PPM + sentry.getSprite().getWidth()/4,
                 sentryPos.y * PPM + sentry.getSprite().getHeight()/4

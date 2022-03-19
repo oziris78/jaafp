@@ -8,11 +8,11 @@ import com.telek.telekgdx.assets.*;
 public class DyingAnimation {
 
 
-    public static Animation<TextureRegion> getAnimation(AssetSorter assetSorter, float SECOND_BETWEEN_FRAMES){
+    public static Animation<TextureRegion> getAnimation(AssetSorter assetSorter){
         Texture walkSheet = assetSorter.getResource("GAME_SCREEN", "playerDeathTexture", Texture.class);
 
-        int FRAME_COLS = 4;
-        int FRAME_ROWS = 1;
+        int FRAME_COLS = walkSheet.getWidth() / Player.PLAYER_WIDTH;
+        int FRAME_ROWS = walkSheet.getHeight() / Player.PLAYER_HEIGHT;
         TextureRegion[][] tmp = TextureRegion.split(walkSheet, walkSheet.getWidth() / FRAME_COLS, walkSheet.getHeight() / FRAME_ROWS);
 
         TextureRegion[] walkFrames = new TextureRegion[FRAME_COLS * FRAME_ROWS];
@@ -23,7 +23,7 @@ public class DyingAnimation {
             }
         }
 
-        return new Animation<>(SECOND_BETWEEN_FRAMES, walkFrames);
+        return new Animation<>(Player.DYING_ANIM_TOTAL_TIME / walkFrames.length, walkFrames);
     }
 
 }
