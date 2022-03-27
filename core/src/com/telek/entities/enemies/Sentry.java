@@ -23,8 +23,6 @@ public class Sentry {
     private static final int SENTRY_WIDTH = 16;
     private static final int SENTRY_HEIGHT = 16;
 
-    private static boolean OTHER_SENTRY_HAS_SHOT;
-
     private AssetSorter assetSorter;
     private Texture texture;
     private Sprite sprite;
@@ -47,7 +45,6 @@ public class Sentry {
         this.sprite = new Sprite(this.texture);
         this.laserSound = assetSorter.getResource("GAME_SCREEN", "laserSound", Sound.class);
         this.laserTSound = new TSound(this.laserSound);
-        OTHER_SENTRY_HAS_SHOT = false;
         this.firingDelay = firingDelay;
         this.secondsForTile = secondsForTile;
         this.timer = 0;
@@ -82,23 +79,12 @@ public class Sentry {
 
         // firing a laser
         if( this.canFire() && !player.isInStartingArea() && player.getDyingTime() == 0.0f){
-            playLaserSound();
+            laserTSound.play(this.firingDelay, 0.2f);
             lasers.add(new Laser(assetSorter, this));
             this.timer = 0;
         }
     }
 
-    private void playLaserSound(){
-        if(OTHER_SENTRY_HAS_SHOT) return;
-        laserTSound.play(this.firingDelay, 0.2f);
-        OTHER_SENTRY_HAS_SHOT = true;
-        Timer.schedule(new Timer.Task() {
-            @Override
-            public void run() {
-                OTHER_SENTRY_HAS_SHOT = !OTHER_SENTRY_HAS_SHOT;
-            }
-        }, this.firingDelay/2);
-    }
 
     private boolean canFire(){
         return this.timer >= this.firingDelay;
@@ -107,7 +93,6 @@ public class Sentry {
     public void draw(SpriteBatch batch){
         this.sprite.draw(batch);
     }
-
 
     public Sprite getSprite() {
         return sprite;
@@ -119,6 +104,6 @@ public class Sentry {
 
     public float getCurrentAngle() { return currentAngle; }
 
-}
 
+}
 

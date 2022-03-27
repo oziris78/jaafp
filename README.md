@@ -19,9 +19,9 @@ This project also uses my own libgdx extension for better code organization: <a 
 
 # Images
 
-< will be coming soon after an asset do-over >
+![image was not loaded](./rapo_images/1.png)
 
-<!-- ![image was not loaded](./git_resources/img3.png)  --> 
+
 
 <br>
 
@@ -30,3 +30,4 @@ This project also uses my own libgdx extension for better code organization: <a 
 - Use WASD keys to move
 - Hold SHIFT to run
 - Hold SPACE to stop moving.
+- If the level is too hard you can press H key to teleport to the end...
