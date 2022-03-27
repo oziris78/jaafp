@@ -17,6 +17,8 @@ Such aspects are:
 
 This project also uses my own libgdx extension for better code organization: <a href="https://github.com/oziris78/telek-gdx">telek-gdx</a>
 
+Special thanks to Yunus Emre Çay for helping me with the graphics.
+
 <br>
 
 ### How To Play
