@@ -100,7 +100,7 @@ project(":core") {
         implementation 'com.crashinvaders.vfx:gdx-vfx-effects:0.5.0'
         implementation 'com.github.raeleus:stripe:master-SNAPSHOT'
 
-        implementation 'com.github.oziris78:telek-gdx:v0.0.8.1'
+        implementation 'com.github.oziris78:toria-gdx:v0.1.0'
     }
 
 }

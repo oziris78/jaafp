@@ -1,3 +1,5 @@
+
+
 # About The Project
 
 Just Another Annoying F***ing Platformer (JAAFP) is a simple 2D platformer where you need to pass 5 levels to finish the game. 
@@ -15,7 +17,7 @@ Such aspects are:
 
 <br>
 
-This project also uses my own libgdx extension for better code organization: <a href="https://github.com/oziris78/telek-gdx">telek-gdx</a>
+This project also uses my own libgdx extension for better code organization: <a href="https://github.com/oziris78/toria-gdx">toria-gdx</a>
 
 Special thanks to Yunus Emre Çay for helping me with the graphics.
 
